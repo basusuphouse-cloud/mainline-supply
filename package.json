@@ -5,10 +5,19 @@
   "description": "Demo storefront for a fictional plumbing and HVAC distributor, built for Playwright testing demos.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "node:version": "node -v"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.22.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.16.1",
   "license": "UNLICENSED"
 }
