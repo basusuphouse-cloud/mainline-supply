@@ -6,3 +6,7 @@ test-results/
 playwright-report/
 blob-report/
 evidence/
+
+# Playwright CLI and MCP session output
+.playwright-cli/
+.playwright-mcp/

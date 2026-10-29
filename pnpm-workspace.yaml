@@ -1,2 +1,5 @@
 # Only install package versions published at least 14 days ago (value in minutes).
 minimumReleaseAge: 20160
+permissions:
+  '@playwright/cli':
+    skills: true
