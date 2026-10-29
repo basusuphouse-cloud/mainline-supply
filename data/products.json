@@ -1,0 +1,39 @@
+[
+  { "sku": "MS-FIT-001", "name": "1/2\" Copper 90° Elbow", "brand": "Copperleaf", "category": "Fittings", "price": 1.29, "stock": 480, "rank": 4 },
+  { "sku": "MS-FIT-002", "name": "3/4\" Copper Coupling", "brand": "Copperleaf", "category": "Fittings", "price": 1.85, "stock": 360, "rank": 15 },
+  { "sku": "MS-FIT-003", "name": "1/2\" PEX Crimp Tee, Brass", "brand": "Keystone Flow", "category": "Fittings", "price": 2.49, "stock": 250, "rank": 9 },
+  { "sku": "MS-FIT-004", "name": "3/4\" Push-Fit Straight Connector", "brand": "Keystone Flow", "category": "Fittings", "price": 8.75, "stock": 120, "rank": 21 },
+  { "sku": "MS-FIT-005", "name": "1\" Black Iron Union", "brand": "Ridgeline", "category": "Fittings", "price": 12.40, "stock": 64, "rank": 27 },
+  { "sku": "MS-FIT-006", "name": "2\" PVC Sanitary Tee", "brand": "Ridgeline", "category": "Fittings", "price": 6.10, "stock": 0, "rank": 30 },
+  { "sku": "MS-FIT-007", "name": "1/2\" Brass Compression Adapter", "brand": "Copperleaf", "category": "Fittings", "price": 3.95, "stock": 210, "rank": 18 },
+
+  { "sku": "MS-VAL-001", "name": "1/2\" Full-Port Ball Valve, Sweat", "brand": "Keystone Flow", "category": "Valves", "price": 14.95, "stock": 140, "rank": 2 },
+  { "sku": "MS-VAL-002", "name": "3/4\" Ball Valve with Drain, Press", "brand": "Keystone Flow", "category": "Valves", "price": 32.50, "stock": 75, "rank": 11 },
+  { "sku": "MS-VAL-003", "name": "1\" Bronze Swing Check Valve", "brand": "Copperleaf", "category": "Valves", "price": 48.20, "stock": 30, "rank": 19 },
+  { "sku": "MS-VAL-004", "name": "3/4\" Thermostatic Mixing Valve", "brand": "Halvard Thermal", "category": "Valves", "price": 119.00, "stock": 22, "rank": 7 },
+  { "sku": "MS-VAL-005", "name": "1/2\" Pressure Reducing Valve", "brand": "Ridgeline", "category": "Valves", "price": 86.75, "stock": 0, "rank": 24 },
+  { "sku": "MS-VAL-006", "name": "3/4\" Zone Valve, 24V, 2-Way", "brand": "Halvard Thermal", "category": "Valves", "price": 142.30, "stock": 18, "rank": 13 },
+
+  { "sku": "MS-PMP-001", "name": "Hydronic Circulator Pump, 3-Speed", "brand": "Halvard Thermal", "category": "Pumps", "price": 189.00, "stock": 25, "rank": 3 },
+  { "sku": "MS-PMP-002", "name": "ECM Circulator Pump, Variable Speed", "brand": "Halvard Thermal", "category": "Pumps", "price": 329.00, "stock": 12, "rank": 10 },
+  { "sku": "MS-PMP-003", "name": "1/3 HP Cast Iron Sump Pump", "brand": "Ridgeline", "category": "Pumps", "price": 214.50, "stock": 16, "rank": 16 },
+  { "sku": "MS-PMP-004", "name": "Condensate Removal Pump, 115V", "brand": "Keystone Flow", "category": "Pumps", "price": 74.95, "stock": 40, "rank": 22 },
+  { "sku": "MS-PMP-005", "name": "1 HP Shallow Well Jet Pump", "brand": "Ridgeline", "category": "Pumps", "price": 468.00, "stock": 6, "rank": 28 },
+
+  { "sku": "MS-WTH-001", "name": "40 Gal Gas Water Heater, Atmospheric", "brand": "Halvard Thermal", "category": "Water Heaters", "price": 899.00, "stock": 5, "rank": 5 },
+  { "sku": "MS-WTH-002", "name": "50 Gal Electric Water Heater", "brand": "Halvard Thermal", "category": "Water Heaters", "price": 749.00, "stock": 8, "rank": 12 },
+  { "sku": "MS-WTH-003", "name": "Tankless Gas Water Heater, 199k BTU", "brand": "Ridgeline", "category": "Water Heaters", "price": 1249.00, "stock": 3, "rank": 8 },
+  { "sku": "MS-WTH-004", "name": "4 Gal Point-of-Use Electric Heater", "brand": "Keystone Flow", "category": "Water Heaters", "price": 229.00, "stock": 0, "rank": 26 },
+
+  { "sku": "MS-TOL-001", "name": "Copper Tubing Cutter, 1/8\"–1-1/8\"", "brand": "Ridgeline", "category": "Tools", "price": 18.99, "stock": 85, "rank": 6 },
+  { "sku": "MS-TOL-002", "name": "PEX Crimp Tool, 1/2\" & 3/4\"", "brand": "Keystone Flow", "category": "Tools", "price": 96.40, "stock": 33, "rank": 14 },
+  { "sku": "MS-TOL-003", "name": "18\" Heavy-Duty Pipe Wrench", "brand": "Ridgeline", "category": "Tools", "price": 42.75, "stock": 50, "rank": 20 },
+  { "sku": "MS-TOL-004", "name": "Digital Manifold Gauge Set", "brand": "Halvard Thermal", "category": "Tools", "price": 389.00, "stock": 9, "rank": 25 },
+  { "sku": "MS-TOL-005", "name": "Thread Seal Tape, 1/2\" x 520\"", "brand": "Copperleaf", "category": "Tools", "price": 1.10, "stock": 900, "rank": 31 },
+
+  { "sku": "MS-THM-001", "name": "Non-Programmable Thermostat, 1H/1C", "brand": "Copperleaf", "category": "Thermostats", "price": 29.95, "stock": 70, "rank": 17 },
+  { "sku": "MS-THM-002", "name": "7-Day Programmable Thermostat", "brand": "Copperleaf", "category": "Thermostats", "price": 64.50, "stock": 44, "rank": 1 },
+  { "sku": "MS-THM-003", "name": "Wi-Fi Smart Thermostat, 3H/2C", "brand": "Halvard Thermal", "category": "Thermostats", "price": 179.00, "stock": 27, "rank": 23 },
+  { "sku": "MS-THM-004", "name": "Line-Voltage Baseboard Thermostat", "brand": "Ridgeline", "category": "Thermostats", "price": 38.25, "stock": 58, "rank": 29 },
+  { "sku": "MS-THM-005", "name": "Outdoor Reset Control Module", "brand": "Keystone Flow", "category": "Thermostats", "price": 154.00, "stock": 14, "rank": 32 }
+]

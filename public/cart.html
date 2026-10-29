@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart | Mainline Supply</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/common.js" defer></script>
+  <script src="/js/cart.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-name">Mainline Supply</span>
+        <span class="brand-tag">Plumbing &amp; HVAC for the trade</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="/">Catalog</a></li>
+          <li>
+            <a href="/cart" class="cart-link" aria-current="page">
+              Cart <span class="badge" data-testid="cart-count">0</span><span class="visually-hidden" data-cart-count-label> items</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container page">
+    <div class="page-head">
+      <h1>Your cart</h1>
+    </div>
+
+    <div class="status" data-testid="cart-status" role="status" aria-live="polite">
+      <p class="status-text">Loading your cart…</p>
+    </div>
+
+    <p class="notice" data-testid="cart-notice" role="status" hidden></p>
+
+    <div class="empty-state" data-testid="empty-state" hidden>
+      <h2>Your cart is empty</h2>
+      <p>Browse the catalog to find fittings, valves, pumps and more.</p>
+      <a class="btn btn-primary" href="/">Browse the catalog</a>
+    </div>
+
+    <div class="cart-layout" id="cart-content" hidden>
+      <section class="cart-items" aria-labelledby="items-heading">
+        <h2 id="items-heading" class="visually-hidden">Items in your cart</h2>
+        <ul class="cart-lines" data-testid="cart-lines"></ul>
+      </section>
+
+      <aside class="summary" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Order summary</h2>
+
+        <form class="promo-form" id="promo-form" novalidate>
+          <label for="promo-input">Promo code</label>
+          <div class="promo-row">
+            <input id="promo-input" name="promo" type="text" autocomplete="off" autocapitalize="characters"
+                   spellcheck="false" data-testid="promo-input" aria-describedby="promo-message">
+            <button type="submit" class="btn btn-secondary" data-testid="promo-apply">Apply</button>
+          </div>
+          <p class="promo-message" id="promo-message" data-testid="promo-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="promo-applied" id="promo-applied" data-testid="promo-applied" hidden>
+          <span>Promo <strong id="promo-applied-code"></strong> applied (10% off)</span>
+          <button type="button" class="btn btn-link" data-testid="promo-remove" id="promo-remove"
+                aria-label="Remove promo code">Remove</button>
+        </div>
+
+        <dl class="totals">
+          <div><dt>Subtotal</dt><dd data-testid="summary-subtotal"></dd></div>
+          <div><dt>Discount</dt><dd data-testid="summary-discount"></dd></div>
+          <div><dt>Shipping (Standard)</dt><dd data-testid="summary-shipping"></dd></div>
+          <div><dt>Tax (8%)</dt><dd data-testid="summary-tax"></dd></div>
+          <div class="total-row"><dt>Total</dt><dd data-testid="summary-total"></dd></div>
+        </dl>
+        <p class="hint" id="shipping-hint" data-testid="shipping-hint"></p>
+
+        <a class="btn btn-primary btn-block" href="/checkout" data-testid="go-to-checkout">Go to checkout</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Mainline Supply is a fictional company for demo purposes.</div>
+  </footer>
+
+  <div class="toast" data-testid="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
