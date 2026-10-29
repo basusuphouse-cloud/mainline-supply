@@ -1,18 +1,37 @@
 # Mainline Supply
 
 A small demo storefront for a fictional plumbing and HVAC distributor, built to be easy to test with Playwright.
-Plain HTML, CSS and JavaScript, served by a zero-dependency Node server. No framework, no build step, nothing to install.
+Plain HTML, CSS and JavaScript, served by a zero-dependency Node server. No framework, no build step, and no runtime dependencies. Playwright is a dev dependency, used only for testing.
 
 All companies, brands, products and prices are made up.
 
-## Requirements
+## Setup: pnpm and the pinned Node runtime
 
-- Node.js 20 or newer (`package.json` declares `engines: >=20`). The server only uses core modules (`http`, `fs`, `path`), and it also runs on older Node versions. Playwright itself needs Node 18+.
+The project pins its own Node runtime, so it doesn't depend on (or change) the Node installed on your machine.
+
+- `package.json` → `devEngines.runtime` pins **Node 24.22.0** with `onFail: "download"`. `pnpm install` downloads it into `node_modules`, and pnpm scripts and `pnpm exec` run on it.
+- `packageManager` is `pnpm@12.16.1`. Use the standalone pnpm (`~/Library/pnpm/bin/pnpm`), which doesn't need a system Node.
+- All dependencies are exact versions at least 14 days old. `pnpm-workspace.yaml` sets `minimumReleaseAge: 20160` (minutes).
+- **Run everything through pnpm.** Bare `node`, `npm` or `npx` use the system Node instead (16.20.1 on the original dev machine).
+
+```bash
+pnpm install
+```
+
+```bash
+pnpm exec playwright install chromium
+```
+
+Check the project runtime (prints v24.22.0):
+
+```bash
+pnpm run node:version
+```
 
 ## Run
 
 ```bash
-npm start
+pnpm start
 ```
 
 Then open http://localhost:4173.
@@ -20,8 +39,64 @@ Then open http://localhost:4173.
 To use a different port:
 
 ```bash
-PORT=8080 npm start
+PORT=8080 pnpm start
 ```
+
+## Scripts
+
+| Script | What it does |
+| --- | --- |
+| `pnpm start` | Serve the app (port 4173, or `PORT`) |
+| `pnpm run node:version` | Print the project's Node version |
+| `pnpm test` | Run all tests on the desktop, tablet-768, phone-393 and phone-360 Chromium projects |
+| `pnpm run test:ui` | Playwright UI mode |
+| `pnpm run test:headed` | Run tests in visible browsers |
+| `pnpm run test:debug` | Debug tests with the Playwright Inspector |
+| `pnpm run test:all-browsers` | Also run the Firefox and WebKit desktop projects (`ALL_BROWSERS=1`) |
+| `pnpm run report` | Open the last HTML report (`playwright-report/`) |
+| `pnpm run codegen` | Record a test against http://localhost:4173 |
+| `pnpm run trace <trace.zip>` | Open a trace; failed tests keep one in `test-results/` |
+
+## Running the tests
+
+```bash
+pnpm test
+```
+
+- Playwright starts the server itself, or reuses one already running on the port.
+- Flags pass straight through, for example `pnpm test --project=phone-360`, `pnpm test tests/cart.spec.ts` or `pnpm test --repeat-each=5`.
+- For Firefox and WebKit, install them once with `pnpm exec playwright install firefox webkit`, then run `pnpm run test:all-browsers`.
+
+| Project | Browser | Viewport |
+| --- | --- | --- |
+| `desktop` | Chromium | 1280×800 |
+| `tablet-768` | Chromium | 768×1024 |
+| `phone-393` | Chromium (`isMobile`, `hasTouch`) | 393×852 |
+| `phone-360` | Chromium (`isMobile`, `hasTouch`) | 360×780 |
+| `firefox`, `webkit` | Desktop, only with `ALL_BROWSERS=1` | 1280×800 |
+
+Test files:
+- **`tests/catalog.spec.ts`, `tests/cart.spec.ts`, `tests/checkout.spec.ts`:** smoke tests for the main flows, with exact money values.
+- **`tests/showcase.spec.ts`:** one test per Playwright capability (network mocking, slow responses, mocked data, API failure, multiple tabs, history, request counting, layout).
+- **`tests/helpers.ts`:** `seedCart`, `openFilters` and `fillCheckout`.
+
+Known issue: Playwright's Firefox 157 build (1555) doesn't launch on macOS 27.0.1 ("Could not find profile folder"), so `test:all-browsers` currently fails every Firefox test at browser launch. WebKit passes.
+
+## Browser access for Claude Code
+
+- **playwright-cli** (`@playwright/cli`, recommended by the Playwright docs for coding agents):
+  - pnpm links its skill into `.claude/skills/`. The permission is recorded in `pnpm-workspace.yaml`.
+  - Run it as `pnpm exec playwright-cli …`.
+  - `.playwright/cli.config.json` makes it use Playwright's Chromium.
+- **Playwright MCP** (`@playwright/mcp`):
+  - registered as `playwright` in `.mcp.json`, running `pnpm exec playwright-mcp` on the project's Node.
+  - If your Claude Code session's PATH finds Homebrew's pnpm first, add a local override with the full path:
+
+```bash
+claude mcp add -s local playwright -- ~/Library/pnpm/bin/pnpm exec playwright-mcp --browser chromium --isolated
+```
+
+See `CLAUDE.md` for the dev-test workflow used for bug tickets.
 
 ## Pages
 
@@ -106,4 +181,9 @@ public/
   css/styles.css
   js/common.js       cart store, money maths, toast, badge, shared status UI
   js/catalog.js, cart.js, checkout.js, confirmation.js
+tests/               Playwright tests and helpers
+playwright.config.ts projects, webServer, reporters
+.mcp.json            Playwright MCP server for Claude Code
+.playwright/         playwright-cli config
+CLAUDE.md            instructions for Claude Code, incl. the bug-ticket workflow
 ```
