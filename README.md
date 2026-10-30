@@ -52,6 +52,7 @@ PORT=8080 pnpm start
 | `pnpm run test:ui` | Playwright UI mode |
 | `pnpm run test:headed` | Run tests in visible browsers |
 | `pnpm run test:debug` | Debug tests with the Playwright Inspector |
+| `pnpm run test:slow` | Watch tests in slow motion: desktop, visible browser, one at a time, 500 ms after each action (`SLOWMO=1000 pnpm run test:slow` for slower; add a file such as `tests/checkout.spec.ts` to watch one area) |
 | `pnpm run test:all-browsers` | Also run the Firefox and WebKit desktop projects (`ALL_BROWSERS=1`) |
 | `pnpm run report` | Open the last HTML report (`playwright-report/`) |
 | `pnpm run codegen` | Record a test against http://localhost:4173 |

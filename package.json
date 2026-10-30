@@ -11,6 +11,7 @@
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
+    "test:slow": "SLOWMO=${SLOWMO:-500} playwright test --headed --workers=1 --project=desktop",
     "test:all-browsers": "ALL_BROWSERS=1 playwright test",
     "report": "playwright show-report",
     "codegen": "playwright codegen http://localhost:4173",

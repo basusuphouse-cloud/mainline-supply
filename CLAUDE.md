@@ -28,6 +28,7 @@ Node 24.22.0 is pinned to this project with `devEngines.runtime` in `package.jso
 | `pnpm run test:ui` | Playwright UI mode |
 | `pnpm run test:headed` | Run with visible browsers |
 | `pnpm run test:debug` | Step through tests with the Playwright Inspector |
+| `pnpm run test:slow` | Watch tests in slow motion (desktop, headed, one worker; `SLOWMO` in ms, default 500). `SLOWMO` also works with any other test command |
 | `pnpm run test:all-browsers` | Add the Firefox and WebKit desktop projects (`ALL_BROWSERS=1`) |
 | `pnpm run report` | Open the last HTML report |
 | `pnpm run codegen` | Record actions against http://localhost:4173 |

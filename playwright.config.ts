@@ -8,6 +8,10 @@ const allBrowsers = process.env.ALL_BROWSERS === '1';
 
 const desktopViewport = { width: 1280, height: 800 };
 
+// Optional slow motion for watching tests: SLOWMO=500 waits 500 ms after each browser action.
+// Unset (the default) means full speed.
+const slowMo = Number(process.env.SLOWMO) || 0;
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -19,6 +23,7 @@ export default defineConfig({
     baseURL,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
+    launchOptions: { slowMo },
   },
 
   // Runs on the project's pinned Node because Playwright is started through pnpm,
